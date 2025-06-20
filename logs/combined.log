@@ -1,0 +1,71 @@
+{"level":"info","message":"Server running on port 3000","timestamp":"2025-06-19T16:51:54.131Z"}
+{"level":"info","message":"GET /api/pdf/status","timestamp":"2025-06-19T17:16:26.373Z"}
+{"level":"info","message":"POST /api/pdf/merge","timestamp":"2025-06-19T17:22:46.473Z"}
+{"level":"error","message":"File too large - POST /api/pdf/merge","timestamp":"2025-06-19T17:22:47.577Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2025-06-19T17:25:28.748Z"}
+{"level":"info","message":"POST /api/pdf/merge","timestamp":"2025-06-19T17:25:46.122Z"}
+{"level":"error","message":"File too large - POST /api/pdf/merge","timestamp":"2025-06-19T17:25:46.536Z"}
+{"level":"info","message":"POST /api/pdf/merge","timestamp":"2025-06-19T17:27:22.847Z"}
+{"level":"info","message":"POST /api/pdf/split","timestamp":"2025-06-19T17:29:12.373Z"}
+{"level":"info","message":"POST /api/pdf/split","timestamp":"2025-06-19T17:29:42.633Z"}
+{"level":"info","message":"POST /api/pdf/split","timestamp":"2025-06-19T17:30:25.852Z"}
+{"level":"info","message":"POST /api/pdf/split","timestamp":"2025-06-20T02:52:19.993Z"}
+{"level":"info","message":"POST /api/pdf/split","timestamp":"2025-06-20T02:53:56.150Z"}
+{"level":"info","message":"POST /api/pdf/split","timestamp":"2025-06-20T02:54:25.685Z"}
+{"level":"info","message":"POST /api/pdf/split","timestamp":"2025-06-20T02:54:29.552Z"}
+{"level":"info","message":"POST /api/pdf/split","timestamp":"2025-06-20T03:15:57.598Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2025-06-20T03:21:48.552Z"}
+{"level":"info","message":"POST /api/pdf/split","timestamp":"2025-06-20T03:21:53.181Z"}
+{"level":"info","message":"POST /api/pdf/split","timestamp":"2025-06-20T05:15:24.500Z"}
+{"level":"info","message":"POST /api/pdf/split","timestamp":"2025-06-20T05:16:27.514Z"}
+{"level":"info","message":"POST /api/pdf/split","timestamp":"2025-06-20T05:17:26.543Z"}
+{"level":"info","message":"POST /api/pdf/split","timestamp":"2025-06-20T05:17:29.758Z"}
+{"level":"info","message":"POST /api/pdf/split","timestamp":"2025-06-20T05:17:31.229Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2025-06-20T05:17:47.361Z"}
+{"level":"info","message":"POST /api/pdf/split","timestamp":"2025-06-20T05:17:52.106Z"}
+{"level":"info","message":"POST /api/pdf/split","timestamp":"2025-06-20T05:18:04.258Z"}
+{"level":"info","message":"POST /api/pdf/split","timestamp":"2025-06-20T05:18:08.076Z"}
+{"level":"info","message":"POST /api/pdf/split","timestamp":"2025-06-20T05:18:44.421Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2025-06-20T05:34:47.924Z"}
+{"level":"info","message":"POST /api/pdf/split","timestamp":"2025-06-20T05:46:26.575Z"}
+{"level":"info","message":"POST /api/pdf/split","timestamp":"2025-06-20T05:47:43.713Z"}
+{"level":"info","message":"POST /api/pdf/split","timestamp":"2025-06-20T05:49:21.346Z"}
+{"level":"error","message":"Split PDF error: newPdf.encrypt is not a function","timestamp":"2025-06-20T05:49:21.393Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2025-06-20T05:49:40.005Z"}
+{"level":"info","message":"POST /api/pdf/split","timestamp":"2025-06-20T05:50:06.804Z"}
+{"level":"error","message":"Split PDF error: newPdf.encrypt is not a function","timestamp":"2025-06-20T05:50:06.888Z"}
+{"level":"info","message":"POST /api/pdf/split","timestamp":"2025-06-20T05:51:53.817Z"}
+{"level":"error","message":"Split PDF error: newPdf.encrypt is not a function","timestamp":"2025-06-20T05:51:53.859Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2025-06-20T05:52:58.904Z"}
+{"level":"info","message":"POST /api/pdf/split","timestamp":"2025-06-20T05:53:09.456Z"}
+{"level":"info","message":"POST /api/pdf/split","timestamp":"2025-06-20T05:54:23.942Z"}
+{"level":"info","message":"POST /api/pdf/split","timestamp":"2025-06-20T05:54:34.673Z"}
+{"level":"info","message":"POST /api/pdf/split","timestamp":"2025-06-20T05:59:59.970Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2025-06-20T06:03:34.449Z"}
+{"level":"info","message":"POST /api/pdf/split","timestamp":"2025-06-20T06:03:38.652Z"}
+{"level":"error","message":"Split PDF error: newPdf.encrypt is not a function","timestamp":"2025-06-20T06:03:38.700Z"}
+{"level":"info","message":"POST /api/pdf/split","timestamp":"2025-06-20T06:03:43.967Z"}
+{"level":"error","message":"Split PDF error: newPdf.encrypt is not a function","timestamp":"2025-06-20T06:03:43.990Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2025-06-20T06:05:12.895Z"}
+{"level":"info","message":"POST /api/pdf/split","timestamp":"2025-06-20T06:05:18.046Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2025-06-20T10:26:40.211Z"}
+{"level":"info","message":"POST /api/pdf/split","timestamp":"2025-06-20T10:27:27.631Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2025-06-20T13:49:02.555Z"}
+{"level":"info","message":"POST /api/pdf/split","timestamp":"2025-06-20T13:50:08.917Z"}
+{"level":"info","message":"POST /api/pdf/split","timestamp":"2025-06-20T13:50:38.682Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2025-06-20T13:52:40.210Z"}
+{"level":"info","message":"POST /api/pdf/split","timestamp":"2025-06-20T13:52:46.635Z"}
+{"level":"info","message":"POST /api/pdf/split","timestamp":"2025-06-20T13:52:46.644Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2025-06-20T13:55:34.253Z"}
+{"level":"info","message":"POST /api/pdf/split","timestamp":"2025-06-20T13:55:50.453Z"}
+{"level":"info","message":"POST /api/pdf/split","timestamp":"2025-06-20T13:56:39.090Z"}
+{"level":"info","message":"POST /api/pdf/split","timestamp":"2025-06-20T13:56:41.201Z"}
+{"level":"info","message":"POST /api/pdf/split","timestamp":"2025-06-20T13:56:43.151Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2025-06-20T14:05:12.616Z"}
+{"level":"info","message":"POST /api/pdf/split","timestamp":"2025-06-20T14:05:28.223Z"}
+{"level":"error","message":"Error downloading file E:\\pdf-api\\uploads\\split-1750428328293-3-4.pdf: Can't set headers after they are sent.","timestamp":"2025-06-20T14:05:29.321Z"}
+{"level":"info","message":"POST /api/pdf/split","timestamp":"2025-06-20T14:08:04.976Z"}
+{"level":"info","message":"POST /api/pdf/split","timestamp":"2025-06-20T14:08:20.109Z"}
+{"level":"info","message":"POST /api/pdf/split","timestamp":"2025-06-20T14:08:38.050Z"}
+{"level":"info","message":"POST /api/pdf/split","timestamp":"2025-06-20T14:08:43.431Z"}
+{"level":"info","message":"POST /api/pdf/split","timestamp":"2025-06-20T14:08:45.157Z"}

@@ -1,0 +1,8 @@
+{"level":"error","message":"File too large - POST /api/pdf/merge","timestamp":"2025-06-19T17:22:47.577Z"}
+{"level":"error","message":"File too large - POST /api/pdf/merge","timestamp":"2025-06-19T17:25:46.536Z"}
+{"level":"error","message":"Split PDF error: newPdf.encrypt is not a function","timestamp":"2025-06-20T05:49:21.393Z"}
+{"level":"error","message":"Split PDF error: newPdf.encrypt is not a function","timestamp":"2025-06-20T05:50:06.888Z"}
+{"level":"error","message":"Split PDF error: newPdf.encrypt is not a function","timestamp":"2025-06-20T05:51:53.859Z"}
+{"level":"error","message":"Split PDF error: newPdf.encrypt is not a function","timestamp":"2025-06-20T06:03:38.700Z"}
+{"level":"error","message":"Split PDF error: newPdf.encrypt is not a function","timestamp":"2025-06-20T06:03:43.990Z"}
+{"level":"error","message":"Error downloading file E:\\pdf-api\\uploads\\split-1750428328293-3-4.pdf: Can't set headers after they are sent.","timestamp":"2025-06-20T14:05:29.321Z"}

@@ -52,6 +52,12 @@ const splitPDF = async (req, res) => {
       return res.status(400).json({ error: 'A PDF file is required' });
     }
 
+    // Get split count from request
+    const splitCount = parseInt(req.body.splitCount);
+    if (!Number.isInteger(splitCount) || splitCount < 1) {
+      return res.status(400).json({ error: 'Invalid split count, must be a positive integer' });
+    }
+
     let ranges;
     try {
       ranges = typeof req.body.ranges === 'string' ? JSON.parse(req.body.ranges) : req.body.ranges;
@@ -60,8 +66,8 @@ const splitPDF = async (req, res) => {
       return res.status(400).json({ error: 'Invalid page ranges format' });
     }
 
-    if (!Array.isArray(ranges)) {
-      return res.status(400).json({ error: 'Ranges must be an array' });
+    if (!Array.isArray(ranges) || ranges.length !== splitCount) {
+      return res.status(400).json({ error: `Expected ${splitCount} range(s), got ${ranges.length}` });
     }
 
     const pdfBytes = fs.readFileSync(req.file.path);
@@ -75,12 +81,26 @@ const splitPDF = async (req, res) => {
       return res.status(400).json({ error: 'Invalid or password-protected PDF' });
     }
 
-    const outputFiles = [];
+    // Validate ranges
+    const totalPages = pdf.getPageCount();
+    const coveredPages = new Set();
     for (const range of ranges) {
-      if (!Number.isInteger(range.start) || !Number.isInteger(range.end) || range.start < 1 || range.end > pdf.getPageCount() || range.start > range.end) {
+      if (!Number.isInteger(range.start) || !Number.isInteger(range.end) || range.start < 1 || range.end > totalPages || range.start > range.end) {
         return res.status(400).json({ error: `Invalid range: ${JSON.stringify(range)}` });
       }
+      for (let i = range.start; i <= range.end; i++) {
+        if (coveredPages.has(i)) {
+          return res.status(400).json({ error: 'Ranges cannot overlap or repeat pages' });
+        }
+        coveredPages.add(i);
+      }
+    }
+    if (coveredPages.size !== totalPages) {
+      return res.status(400).json({ error: 'Ranges must cover all pages of the PDF' });
+    }
 
+    const outputFiles = [];
+    for (const range of ranges) {
       const newPdf = await PDFDocument.create();
       const copiedPages = await newPdf.copyPages(pdf, Array.from({ length: range.end - range.start + 1 }, (_, i) => range.start - 1 + i));
       copiedPages.forEach((page) => newPdf.addPage(page));

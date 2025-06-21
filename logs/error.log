@@ -6,3 +6,9 @@
 {"level":"error","message":"Split PDF error: newPdf.encrypt is not a function","timestamp":"2025-06-20T06:03:38.700Z"}
 {"level":"error","message":"Split PDF error: newPdf.encrypt is not a function","timestamp":"2025-06-20T06:03:43.990Z"}
 {"level":"error","message":"Error downloading file E:\\pdf-api\\uploads\\split-1750428328293-3-4.pdf: Can't set headers after they are sent.","timestamp":"2025-06-20T14:05:29.321Z"}
+{"level":"error","message":"Error parsing ranges: Expected ',' or '}' after property value in JSON at position 11 (line 1 column 12)","timestamp":"2025-06-21T08:22:19.352Z"}
+{"level":"error","message":"Error parsing ranges: Expected ',' or '}' after property value in JSON at position 11 (line 1 column 12)","timestamp":"2025-06-21T08:25:33.787Z"}
+{"level":"error","message":"Error parsing ranges: Expected ',' or '}' after property value in JSON at position 11 (line 1 column 12)","timestamp":"2025-06-21T08:26:23.557Z"}
+{"level":"error","message":"Error downloading file E:\\pdf-api\\uploads\\split-1750498692076-3-4.pdf: Can't set headers after they are sent.","timestamp":"2025-06-21T09:38:13.157Z"}
+{"level":"error","message":"Error parsing ranges: Expected property name or '}' in JSON at position 2 (line 1 column 3)","timestamp":"2025-06-21T10:13:02.508Z"}
+{"level":"error","message":"Error downloading file E:\\pdf-api\\uploads\\split-1750500821301-3-4.pdf: Can't set headers after they are sent.","timestamp":"2025-06-21T10:13:42.359Z"}

@@ -69,3 +69,24 @@
 {"level":"info","message":"POST /api/pdf/split","timestamp":"2025-06-20T14:08:38.050Z"}
 {"level":"info","message":"POST /api/pdf/split","timestamp":"2025-06-20T14:08:43.431Z"}
 {"level":"info","message":"POST /api/pdf/split","timestamp":"2025-06-20T14:08:45.157Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2025-06-21T04:30:47.290Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2025-06-21T08:20:48.484Z"}
+{"level":"info","message":"POST /api/pdf/split","timestamp":"2025-06-21T08:21:08.590Z"}
+{"level":"info","message":"POST /api/pdf/split","timestamp":"2025-06-21T08:21:21.807Z"}
+{"level":"info","message":"POST /api/pdf/split","timestamp":"2025-06-21T08:21:33.563Z"}
+{"level":"info","message":"POST /api/pdf/split","timestamp":"2025-06-21T08:22:19.336Z"}
+{"level":"error","message":"Error parsing ranges: Expected ',' or '}' after property value in JSON at position 11 (line 1 column 12)","timestamp":"2025-06-21T08:22:19.352Z"}
+{"level":"info","message":"POST /api/pdf/split","timestamp":"2025-06-21T08:25:33.781Z"}
+{"level":"error","message":"Error parsing ranges: Expected ',' or '}' after property value in JSON at position 11 (line 1 column 12)","timestamp":"2025-06-21T08:25:33.787Z"}
+{"level":"info","message":"POST /api/pdf/split","timestamp":"2025-06-21T08:26:23.550Z"}
+{"level":"error","message":"Error parsing ranges: Expected ',' or '}' after property value in JSON at position 11 (line 1 column 12)","timestamp":"2025-06-21T08:26:23.557Z"}
+{"level":"info","message":"POST /api/pdf/split","timestamp":"2025-06-21T08:31:34.033Z"}
+{"level":"info","message":"POST /api/pdf/split","timestamp":"2025-06-21T09:37:59.722Z"}
+{"level":"info","message":"POST /api/pdf/split","timestamp":"2025-06-21T09:38:11.999Z"}
+{"level":"error","message":"Error downloading file E:\\pdf-api\\uploads\\split-1750498692076-3-4.pdf: Can't set headers after they are sent.","timestamp":"2025-06-21T09:38:13.157Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2025-06-21T10:07:41.373Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2025-06-21T10:10:17.147Z"}
+{"level":"info","message":"POST /api/pdf/split","timestamp":"2025-06-21T10:13:02.494Z"}
+{"level":"error","message":"Error parsing ranges: Expected property name or '}' in JSON at position 2 (line 1 column 3)","timestamp":"2025-06-21T10:13:02.508Z"}
+{"level":"info","message":"POST /api/pdf/split","timestamp":"2025-06-21T10:13:41.171Z"}
+{"level":"error","message":"Error downloading file E:\\pdf-api\\uploads\\split-1750500821301-3-4.pdf: Can't set headers after they are sent.","timestamp":"2025-06-21T10:13:42.359Z"}

@@ -137,3 +137,8 @@
 {"level":"info","message":"Response: POST /split 400 - 1ms","responseBody":"{\"error\":\"A PDF file is required\"}","timestamp":"2025-06-22T16:07:58.020Z"}
 {"level":"info","message":"Request: GET /api/pdf/status","timestamp":"2025-06-22T16:08:15.668Z"}
 {"level":"info","message":"Response: GET /status 200 - 0ms","responseBody":"{\"status\":\"API is running\"}","timestamp":"2025-06-22T16:08:15.668Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2025-06-22T16:08:38.880Z"}
+{"level":"info","message":"Request: GET /api/pdf/status","timestamp":"2025-06-22T16:08:43.858Z"}
+{"level":"info","message":"Response: GET /status 200 - 2ms","responseBody":"{\"status\":\"API is running\"}","timestamp":"2025-06-22T16:08:43.861Z"}
+{"level":"info","message":"Request: POST /api/pdf/merge","timestamp":"2025-06-22T16:08:50.119Z"}
+{"level":"info","message":"Response: POST /merge 400 - 0ms","responseBody":"{\"error\":\"At least two PDF files are required\"}","timestamp":"2025-06-22T16:08:50.120Z"}

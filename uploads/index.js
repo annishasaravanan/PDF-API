@@ -28,7 +28,19 @@ app.use(
 
 // Log all requests
 app.use((req, res, next) => {
-  logger.info(`${req.method} ${req.url}`);
+  logger.info(`Request: ${req.method} ${req.url}`);
+  next();
+});
+
+// Log all responses
+app.use((req, res, next) => {
+  const start = Date.now();
+  const originalSend = res.send;
+  res.send = function (body) {
+    const duration = Date.now() - start;
+    logger.info(`Response: ${req.method} ${req.url} ${res.statusCode} - ${duration}ms`, { responseBody: body });
+    return originalSend.call(this, body);
+  };
   next();
 });
 

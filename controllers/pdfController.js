@@ -2,6 +2,9 @@ const { PDFDocument } = require('pdf-lib');
 const fs = require('fs');
 const path = require('path');
 const logger = require('../utils/logger');
+const { v4: uuidv4 } = require('uuid');
+// In-memory job store for async operations
+const jobs = {};
 
 const mergePDFs = async (req, res) => {
   try {
@@ -35,11 +38,8 @@ const mergePDFs = async (req, res) => {
     const mergedPdfBytes = await mergedPdf.save();
     const outputPath = path.join(__dirname, '../uploads', `merged-${Date.now()}.pdf`);
     fs.writeFileSync(outputPath, mergedPdfBytes);
-
-    res.download(outputPath, 'merged.pdf', (err) => {
-      if (err) logger.error(`Error downloading file: ${err.message}`);
-      fs.unlinkSync(outputPath); // Clean up after download
-    });
+    const fileName = path.basename(outputPath);
+    return res.status(200).json({ files: [{ name: 'merged.pdf', url: `/download/${fileName}` }] });
   } catch (err) {
     logger.error(`Merge PDF error: ${err.message}`);
     res.status(500).json({ error: 'Internal server error' });
@@ -81,22 +81,12 @@ const splitPDF = async (req, res) => {
       return res.status(400).json({ error: 'Invalid or password-protected PDF' });
     }
 
-    // Validate ranges
+    // Validate page ranges without requiring full coverage or no overlap
     const totalPages = pdf.getPageCount();
-    const coveredPages = new Set();
     for (const range of ranges) {
       if (!Number.isInteger(range.start) || !Number.isInteger(range.end) || range.start < 1 || range.end > totalPages || range.start > range.end) {
         return res.status(400).json({ error: `Invalid range: ${JSON.stringify(range)}` });
       }
-      for (let i = range.start; i <= range.end; i++) {
-        if (coveredPages.has(i)) {
-          return res.status(400).json({ error: 'Ranges cannot overlap or repeat pages' });
-        }
-        coveredPages.add(i);
-      }
-    }
-    if (coveredPages.size !== totalPages) {
-      return res.status(400).json({ error: 'Ranges must cover all pages of the PDF' });
     }
 
     const outputFiles = [];
@@ -149,4 +139,82 @@ const status = async (req, res) => {
   res.status(200).json({ status: 'API is running' });
 };
 
-module.exports = { mergePDFs, splitPDF, status };
+const downloadFile = async (req, res) => {
+  try {
+    const { filename } = req.params;
+    const filePath = path.join(__dirname, '../uploads', filename);
+    if (!fs.existsSync(filePath)) {
+      return res.status(404).json({ error: 'File not found' });
+    }
+    res.download(filePath, filename, (err) => {
+      if (err) {
+        logger.error(`Error downloading file ${filename}: ${err.message}`);
+        return res.status(500).json({ error: 'Error downloading file' });
+      }
+      fs.unlinkSync(filePath);
+    });
+  } catch (err) {
+    logger.error(`Download error: ${err.message}`);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+};
+
+// Asynchronous job handling
+const startMergeJob = (req, res) => {
+  const jobId = uuidv4();
+  jobs[jobId] = { status: 'pending', files: [], error: null };
+  // Kick off job
+  mergePDFs(req, {
+    status: (code) => ({ json: (body) => body }),
+    ...{
+      statusCode: null,
+      json: (body) => {
+        if (body.files) jobs[jobId].files = body.files;
+        jobs[jobId].status = 'completed';
+      }
+    }
+  }).catch(err => {
+    jobs[jobId].status = 'error';
+    jobs[jobId].error = err.message;
+  });
+  res.status(202).json({ jobId });
+};
+
+const startSplitJob = (req, res) => {
+  const jobId = uuidv4();
+  jobs[jobId] = { status: 'pending', files: [], error: null };
+  splitPDF(req, {
+    status: (code) => ({ json: (body) => body }),
+    json: (body) => {
+      if (body.files) jobs[jobId].files = body.files;
+      jobs[jobId].status = 'completed';
+    }
+  }).catch(err => {
+    jobs[jobId].status = 'error';
+    jobs[jobId].error = err.message;
+  });
+  res.status(202).json({ jobId });
+};
+
+const getJobStatus = (req, res) => {
+  const { jobId } = req.params;
+  const job = jobs[jobId];
+  if (!job) return res.status(404).json({ error: 'Job not found' });
+  res.status(200).json(job);
+};
+
+const splitByBookmarks = async (req, res) => {
+  // Feature not implemented: splitting by bookmarks/chapter detection
+  res.status(501).json({ error: 'Splitting by bookmarks not implemented' });
+};
+
+module.exports = {
+  mergePDFs,
+  splitPDF,
+  status,
+  downloadFile,
+  startMergeJob,
+  startSplitJob,
+  getJobStatus,
+  splitByBookmarks,
+};

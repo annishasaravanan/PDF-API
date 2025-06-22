@@ -90,3 +90,22 @@
 {"level":"error","message":"Error parsing ranges: Expected property name or '}' in JSON at position 2 (line 1 column 3)","timestamp":"2025-06-21T10:13:02.508Z"}
 {"level":"info","message":"POST /api/pdf/split","timestamp":"2025-06-21T10:13:41.171Z"}
 {"level":"error","message":"Error downloading file E:\\pdf-api\\uploads\\split-1750500821301-3-4.pdf: Can't set headers after they are sent.","timestamp":"2025-06-21T10:13:42.359Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2025-06-22T13:58:36.258Z"}
+{"level":"info","message":"POST /api/pdf/split","timestamp":"2025-06-22T13:59:39.826Z"}
+{"level":"error","message":"Error downloading file E:\\pdf-api\\uploads\\split-1750600781423-3-4.pdf: Can't set headers after they are sent.","timestamp":"2025-06-22T13:59:43.014Z"}
+{"level":"info","message":"POST /api/pdf/split","timestamp":"2025-06-22T14:01:07.028Z"}
+{"level":"error","message":"Error downloading file E:\\pdf-api\\uploads\\split-1750600867140-3-4.pdf: Can't set headers after they are sent.","timestamp":"2025-06-22T14:01:08.153Z"}
+{"level":"info","message":"POST /api/pdf/split","timestamp":"2025-06-22T14:01:58.211Z"}
+{"level":"info","message":"POST /api/pdf/split","timestamp":"2025-06-22T14:02:11.755Z"}
+{"level":"info","message":"POST /api/pdf/split","timestamp":"2025-06-22T14:02:25.245Z"}
+{"level":"info","message":"POST /api/pdf/split","timestamp":"2025-06-22T14:02:31.898Z"}
+{"level":"error","message":"Error downloading file E:\\pdf-api\\uploads\\split-1750600951958-3-4.pdf: Request aborted","timestamp":"2025-06-22T14:02:32.967Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2025-06-22T14:32:01.888Z"}
+{"level":"info","message":"POST /api/pdf/split","timestamp":"2025-06-22T14:32:08.509Z"}
+{"level":"error","message":"Error downloading file E:\\pdf-api\\uploads\\split-1750602728723-3-4.pdf: Can't set headers after they are sent.","timestamp":"2025-06-22T14:32:09.757Z"}
+{"level":"info","message":"POST /api/pdf/split","timestamp":"2025-06-22T14:32:18.245Z"}
+{"level":"info","message":"POST /api/pdf/split","timestamp":"2025-06-22T14:32:39.014Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2025-06-22T15:44:06.000Z"}
+{"level":"info","message":"Request: POST /api/pdf/split","timestamp":"2025-06-22T15:45:45.873Z"}
+{"level":"info","message":"Request: GET /api/pdf/status/job","timestamp":"2025-06-22T15:46:21.620Z"}
+{"level":"info","message":"Request: GET /api/pdf/status/job","timestamp":"2025-06-22T15:47:12.358Z"}

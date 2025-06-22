@@ -109,3 +109,31 @@
 {"level":"info","message":"Request: POST /api/pdf/split","timestamp":"2025-06-22T15:45:45.873Z"}
 {"level":"info","message":"Request: GET /api/pdf/status/job","timestamp":"2025-06-22T15:46:21.620Z"}
 {"level":"info","message":"Request: GET /api/pdf/status/job","timestamp":"2025-06-22T15:47:12.358Z"}
+{"level":"info","message":"Request: GET /api/pdf/status","timestamp":"2025-06-22T15:56:06.655Z"}
+{"level":"info","message":"Response: GET /status 200 - 1ms","responseBody":"{\"status\":\"API is running\"}","timestamp":"2025-06-22T15:56:06.656Z"}
+{"level":"info","message":"Request: POST /api/pdf/merge","timestamp":"2025-06-22T15:57:26.865Z"}
+{"level":"info","message":"Response: POST /merge 200 - 82ms","responseBody":"{\"files\":[{\"name\":\"merged.pdf\",\"url\":\"/download/merged-1750607846946.pdf\"}]}","timestamp":"2025-06-22T15:57:26.947Z"}
+{"level":"info","message":"Request: GET /download/merged-1750607846946.pdf","timestamp":"2025-06-22T15:57:38.049Z"}
+{"level":"info","message":"Request: GET /download/merged-1750607846946.pdf","timestamp":"2025-06-22T15:57:56.967Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2025-06-22T16:01:19.367Z"}
+{"level":"info","message":"Request: POST /api/pdf/merge","timestamp":"2025-06-22T16:02:36.475Z"}
+{"level":"info","message":"Response: POST /merge 400 - 1ms","responseBody":"{\"error\":\"At least two PDF files are required\"}","timestamp":"2025-06-22T16:02:36.477Z"}
+{"level":"info","message":"Request: POST /api/pdf/merge","timestamp":"2025-06-22T16:03:46.214Z"}
+{"level":"info","message":"Response: POST /merge 400 - 1ms","responseBody":"{\"error\":\"At least two PDF files are required\"}","timestamp":"2025-06-22T16:03:46.215Z"}
+{"level":"info","message":"Request: POST /api/pdf/merge","timestamp":"2025-06-22T16:03:54.972Z"}
+{"level":"info","message":"Response: POST /merge 400 - 0ms","responseBody":"{\"error\":\"At least two PDF files are required\"}","timestamp":"2025-06-22T16:03:54.973Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2025-06-22T16:04:37.010Z"}
+{"level":"info","message":"Request: POST /api/pdf/merge","timestamp":"2025-06-22T16:04:43.655Z"}
+{"level":"info","message":"Response: POST /merge 400 - 1ms","responseBody":"{\"error\":\"At least two PDF files are required\"}","timestamp":"2025-06-22T16:04:43.657Z"}
+{"level":"info","message":"Request: POST /api/pdf/merge","timestamp":"2025-06-22T16:06:29.916Z"}
+{"level":"info","message":"Response: POST /merge 400 - 0ms","responseBody":"{\"error\":\"At least two PDF files are required\"}","timestamp":"2025-06-22T16:06:29.917Z"}
+{"level":"info","message":"Request: POST /api/pdf/merge","timestamp":"2025-06-22T16:06:34.736Z"}
+{"level":"info","message":"Response: POST /merge 400 - 1ms","responseBody":"{\"error\":\"At least two PDF files are required\"}","timestamp":"2025-06-22T16:06:34.737Z"}
+{"level":"info","message":"Request: POST /api/pdf/merge","timestamp":"2025-06-22T16:07:04.203Z"}
+{"level":"info","message":"Response: POST /merge 400 - 1ms","responseBody":"{\"error\":\"At least two PDF files are required\"}","timestamp":"2025-06-22T16:07:04.205Z"}
+{"level":"info","message":"Request: POST /api/pdf/merge","timestamp":"2025-06-22T16:07:49.251Z"}
+{"level":"info","message":"Response: POST /merge 400 - 1ms","responseBody":"{\"error\":\"At least two PDF files are required\"}","timestamp":"2025-06-22T16:07:49.252Z"}
+{"level":"info","message":"Request: POST /api/pdf/split","timestamp":"2025-06-22T16:07:58.019Z"}
+{"level":"info","message":"Response: POST /split 400 - 1ms","responseBody":"{\"error\":\"A PDF file is required\"}","timestamp":"2025-06-22T16:07:58.020Z"}
+{"level":"info","message":"Request: GET /api/pdf/status","timestamp":"2025-06-22T16:08:15.668Z"}
+{"level":"info","message":"Response: GET /status 200 - 0ms","responseBody":"{\"status\":\"API is running\"}","timestamp":"2025-06-22T16:08:15.668Z"}

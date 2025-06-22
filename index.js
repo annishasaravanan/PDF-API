@@ -1,9 +1,9 @@
 const express = require('express');
 const cors = require('cors');
 const rateLimit = require('express-rate-limit');
-const pdfRoutes = require('../routes/pdfRoutes');
-const errorHandler = require('../middleware/errorHandler');
-const logger = require('../utils/logger');
+const pdfRoutes = require('./routes/pdfRoutes');
+const errorHandler = require('./middleware/errorHandler');
+const logger = require('./utils/logger');
 const path = require('path');
 const fs = require('fs');
 require('dotenv').config();

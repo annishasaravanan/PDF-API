@@ -3,13 +3,14 @@ const fs = require('fs');
 const path = require('path');
 const logger = require('../utils/logger');
 const { v4: uuidv4 } = require('uuid');
+
 // In-memory job store for async operations
 const jobs = {};
 
 const mergePDFs = async (req, res) => {
   try {
-    if (!req.files || req.files.length < 2) {
-      return res.status(400).json({ error: 'At least two PDF files are required' });
+    if (!req.files) {
+      return res.status(400).json({ error: 'No PDF files provided' });
     }
 
     const mergedPdf = await PDFDocument.create();
@@ -31,7 +32,16 @@ const mergePDFs = async (req, res) => {
     if (req.body.outputPassword) {
       mergedPdf.encrypt({
         userPassword: req.body.outputPassword,
-        permissions: { printing: 'highResolution', modifying: false, copying: false },
+        ownerPassword: req.body.outputPassword, // Optional, can be different from userPassword
+        permissions: {
+          printing: 'highResolution',
+          modifying: false,
+          copying: false,
+          annotating: false,
+          fillingForms: false,
+          contentAccessibility: false,
+          documentAssembly: false,
+        },
       });
     }
 
@@ -39,7 +49,7 @@ const mergePDFs = async (req, res) => {
     const outputPath = path.join(__dirname, '../uploads', `merged-${Date.now()}.pdf`);
     fs.writeFileSync(outputPath, mergedPdfBytes);
     const fileName = path.basename(outputPath);
-    return res.status(200).json({ files: [{ name: 'merged.pdf', url: `/download/${fileName}` }] });
+    return res.status(200).json({ files: [{ name: 'merged.pdf', url: `/api/pdf/download/${fileName}` }] });
   } catch (err) {
     logger.error(`Merge PDF error: ${err.message}`);
     res.status(500).json({ error: 'Internal server error' });
@@ -98,7 +108,16 @@ const splitPDF = async (req, res) => {
       if (req.body.outputPassword) {
         newPdf.encrypt({
           userPassword: req.body.outputPassword,
-          permissions: { printing: 'highResolution', modifying: false, copying: false },
+          ownerPassword: req.body.outputPassword, // Optional, can be different
+          permissions: {
+            printing: 'highResolution',
+            modifying: false,
+            copying: false,
+            annotating: false,
+            fillingForms: false,
+            contentAccessibility: false,
+            documentAssembly: false,
+          },
         });
       }
 
@@ -108,26 +127,12 @@ const splitPDF = async (req, res) => {
       outputFiles.push(outputPath);
     }
 
-    // Sequentially trigger downloads for each split PDF
-    let index = 0;
-    const downloadNext = () => {
-      if (index < outputFiles.length) {
-        res.download(outputFiles[index], path.basename(outputFiles[index]), (err) => {
-          if (err) {
-            logger.error(`Error downloading file ${outputFiles[index]}: ${err.message}`);
-          }
-          fs.unlinkSync(outputFiles[index]); // Clean up after download
-          index++;
-          if (index < outputFiles.length) {
-            // Delay to allow browser/Postman to process the next download
-            setTimeout(downloadNext, 1000); // 1-second delay
-          }
-        });
-      }
-    };
-
-    // Start the download sequence
-    downloadNext();
+    // Return download URLs for each split PDF
+    const files = outputFiles.map((filePath) => {
+      const name = path.basename(filePath);
+      return { name, url: `/api/pdf/download/${name}` };
+    });
+    return res.status(200).json({ files });
 
   } catch (err) {
     logger.error(`Split PDF error: ${err.message}`);
@@ -146,13 +151,12 @@ const downloadFile = async (req, res) => {
     if (!fs.existsSync(filePath)) {
       return res.status(404).json({ error: 'File not found' });
     }
-    res.download(filePath, filename, (err) => {
-      if (err) {
-        logger.error(`Error downloading file ${filename}: ${err.message}`);
-        return res.status(500).json({ error: 'Error downloading file' });
-      }
-      fs.unlinkSync(filePath);
-    });
+    // Stream PDF inline to display in client
+    const fileBuffer = fs.readFileSync(filePath);
+    res.setHeader('Content-Type', 'application/pdf');
+    res.setHeader('Content-Disposition', `inline; filename="${filename}"`);
+    res.send(fileBuffer);
+    fs.unlinkSync(filePath);
   } catch (err) {
     logger.error(`Download error: ${err.message}`);
     res.status(500).json({ error: 'Internal server error' });

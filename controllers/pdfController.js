@@ -9,7 +9,7 @@ const jobs = {};
 
 const mergePDFs = async (req, res) => {
   try {
-    if (!req.files) {
+    if (!req.files || req.files.length === 0) {
       return res.status(400).json({ error: 'No PDF files provided' });
     }
 

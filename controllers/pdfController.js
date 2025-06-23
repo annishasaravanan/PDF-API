@@ -30,19 +30,23 @@ const mergePDFs = async (req, res) => {
     }
 
     if (req.body.outputPassword) {
-      mergedPdf.encrypt({
-        userPassword: req.body.outputPassword,
-        ownerPassword: req.body.outputPassword, // Optional, can be different from userPassword
-        permissions: {
-          printing: 'highResolution',
-          modifying: false,
-          copying: false,
-          annotating: false,
-          fillingForms: false,
-          contentAccessibility: false,
-          documentAssembly: false,
-        },
-      });
+      if (typeof mergedPdf.encrypt === 'function') {
+        mergedPdf.encrypt({
+          userPassword: req.body.outputPassword,
+          ownerPassword: req.body.outputPassword, // Optional, can be different from userPassword
+          permissions: {
+            printing: 'highResolution',
+            modifying: false,
+            copying: false,
+            annotating: false,
+            fillingForms: false,
+            contentAccessibility: false,
+            documentAssembly: false,
+          },
+        });
+      } else {
+        logger.warn('Encryption is not supported in current pdf-lib version; skipping password protection');
+      }
     }
 
     const mergedPdfBytes = await mergedPdf.save();
@@ -106,19 +110,23 @@ const splitPDF = async (req, res) => {
       copiedPages.forEach((page) => newPdf.addPage(page));
 
       if (req.body.outputPassword) {
-        newPdf.encrypt({
-          userPassword: req.body.outputPassword,
-          ownerPassword: req.body.outputPassword, // Optional, can be different
-          permissions: {
-            printing: 'highResolution',
-            modifying: false,
-            copying: false,
-            annotating: false,
-            fillingForms: false,
-            contentAccessibility: false,
-            documentAssembly: false,
-          },
-        });
+        if (typeof newPdf.encrypt === 'function') {
+          newPdf.encrypt({
+            userPassword: req.body.outputPassword,
+            ownerPassword: req.body.outputPassword, // Optional, can be different
+            permissions: {
+              printing: 'highResolution',
+              modifying: false,
+              copying: false,
+              annotating: false,
+              fillingForms: false,
+              contentAccessibility: false,
+              documentAssembly: false,
+            },
+          });
+        } else {
+          logger.warn('Encryption is not supported in current pdf-lib version; skipping password protection');
+        }
       }
 
       const newPdfBytes = await newPdf.save();

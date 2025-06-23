@@ -26,3 +26,6 @@
 {"level":"error","message":"Merge PDF error: mergedPdf.encrypt is not a function","timestamp":"2025-06-22T17:54:25.098Z"}
 {"level":"error","message":"Merge PDF error: mergedPdf.encrypt is not a function","timestamp":"2025-06-22T17:54:27.409Z"}
 {"level":"error","message":"Error downloading file E:\\pdf-api\\uploads\\split-1750615338527-3-4.pdf: Can't set headers after they are sent.","timestamp":"2025-06-22T18:02:19.581Z"}
+{"level":"error","message":"Merge PDF error: mergedPdf.encrypt is not a function","timestamp":"2025-06-23T07:41:55.954Z"}
+{"level":"error","message":"Merge PDF error: mergedPdf.encrypt is not a function","timestamp":"2025-06-23T07:42:35.194Z"}
+{"level":"error","message":"Merge PDF error: mergedPdf.encrypt is not a function","timestamp":"2025-06-23T07:42:37.904Z"}
